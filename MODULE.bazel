@@ -1,0 +1,17 @@
+bazel_dep(name = "rules_qt")
+git_override(
+    module_name = "rules_qt",
+    remote = "https://github.com/Sayter99/rules_qt6.git",
+    commit = "14d24ecc951323f59dd142745adfa82f97c53f9d",
+)
+qt = use_extension("@rules_qt//:extensions.bzl", "qt")
+qt.fetch()
+use_repo(
+    qt,
+    "qt_linux_x86_64",
+    "qt_windows_x86_64",
+)
+register_toolchains(
+    "@rules_qt//tools:all",
+    dev_dependency = True,
+)

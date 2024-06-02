@@ -1,0 +1,11 @@
+# Visual Studio 2022
+build:vs --cxxopt=/std:c++20
+build:vs --cxxopt=/Zc:__cplusplus
+build:vs --enable_runfiles # https://github.com/bazelbuild/bazel/issues/8843
+build:vs --define compiler=vs2022
+build:vs --copt=-DWIN32_LEAN_AND_MEAN
+build:vs --copt=-DNOGDI
+build:vs --host_copt=-DWIN32_LEAN_AND_MEAN
+build:vs --host_copt=-DNOGDI
+
+build --config=vs
